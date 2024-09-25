@@ -1,26 +1,47 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [email, setEmail] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    try {
+      const res = await fetch('http://localhost:5001/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const message = await res.text();
+      setResponseMessage(message); // Set the response message
+    } catch (error) {
+      setResponseMessage('Error: ' + error.message); // Handle error
+    }
+  };
+
   return (
-    <div className="container">
-      <h1>Email Form</h1>
-      <form>
-        <label>Email Address:</label>
-        <input type="email" placeholder="Enter your email" />
-
-        <label>Message:</label>
-        <textarea rows="4" placeholder="Type your message"></textarea>
-
-        <button type="submit">Submit</button>
+    <div>
+      <h1>Subscribe to Our Newsletter</h1>
+      <form onSubmit={handleSubscribe}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit">Subscribe</button>
       </form>
-
-      <div className="animal-section">
-        <h2>My Favourite Animal</h2>
-        <img src="your-animal-image.jpg" alt="Favourite Animal" />
-      </div>
+      {responseMessage && <p>{responseMessage}</p>} {/* Display response */}
     </div>
   );
-}
+};
 
 export default App;
