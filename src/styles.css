@@ -1,39 +1,54 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-  }
-  
-  form {
+/* styles.css */
+
+body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-  
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  
-  p {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: green;
-  }
-  
+    align-items: center; /* Center the contents */
+    justify-content: center; /* Center vertically */
+    min-height: 100vh; /* Full height of viewport */
+    margin: 0;
+    background-color: #f0f0f0; /* Background color */
+}
+
+.container {
+    max-width: 400px; /* Set a max width */
+    background-color: white; /* White background for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Padding around content */
+    text-align: center; /* Center text */
+}
+
+h1 {
+    font-size: 24px; /* Adjust title size */
+    margin-bottom: 20px; /* Space below title */
+    text-align: center; /* Center the heading */
+}
+
+input[type="email"] {
+    width: 100%; /* Full width for input */
+    padding: 10px; /* Padding inside input */
+    margin-bottom: 10px; /* Space below input */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners for input */
+}
+
+button {
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    padding: 10px; /* Padding inside button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer on hover */
+    width: 100%; /* Full width for button */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+img {
+    width: 50%; /* Set the image width to 50% of its container */
+    margin-top: 20px; /* Space above the image */
+    border-radius: 10px; /* Rounded corners for the image */
+}

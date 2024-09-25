@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css'; // Make sure the path is correct
 
 const App = () => {
   const [email, setEmail] = useState('');
@@ -40,6 +41,7 @@ const App = () => {
         <button type="submit">Subscribe</button>
       </form>
       {responseMessage && <p>{responseMessage}</p>} {/* Display response */}
+      <img src="./your-animal-image.jpg" alt="Favorite Animal" style={{ width: '100%', marginTop: '20px', borderRadius: '10px' }} />
     </div>
   );
 };
